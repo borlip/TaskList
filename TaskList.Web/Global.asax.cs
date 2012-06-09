@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
+using Autofac;
+using Autofac.Integration.Mvc;
+using TaskList.Core.Concrete;
 
 namespace TaskList.Web
 {
@@ -31,10 +30,23 @@ namespace TaskList.Web
 
         protected void Application_Start()
         {
+            var container = BuildContainer();
+
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            ControllerBuilder.Current.SetControllerFactory(new TaskListControllerFactory(container));
+        }
+
+        private static IContainer BuildContainer()
+        {
+            var containerBuilder = new ContainerBuilder();
+            containerBuilder.RegisterType<ITaskRepository>().As<TaskRepository>();
+            return containerBuilder.Build();
         }
     }
 }

@@ -41,6 +41,9 @@
     <Reference Include="System.Data.Entity" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\ITaskRepository.cs" />
+    <Compile Include="Concrete\TaskListDbContext.cs" />
+    <Compile Include="Concrete\TaskRepository.cs" />
     <Compile Include="Entities\Task.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
