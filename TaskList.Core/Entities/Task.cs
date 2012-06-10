@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using TaskList.Core.Utils;
 
 namespace TaskList.Core.Entities
 {
