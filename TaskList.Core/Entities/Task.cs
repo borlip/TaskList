@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using TaskList.Core.Utils;
 
 namespace TaskList.Core.Entities
 {
@@ -15,9 +16,11 @@ namespace TaskList.Core.Entities
         [Key]
         public int RecordId { get; set; }
 
+        [Required(ErrorMessage = "Please enter a task name")]
         public string Name { get; set; }
 
         [DataType(DataType.Date)]
+        [Required(ErrorMessage = "Please enter a due date")]
         public DateTime DueDate { get; set; }
 
         public Priority Priority

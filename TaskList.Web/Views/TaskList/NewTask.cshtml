@@ -15,6 +15,7 @@
 <h2>New Task</h2>
 @using (Html.BeginForm())
 {
+    @Html.ValidationSummary()
     <div>Name: @Html.EditorFor(x => x.Name)</div>
     <div>Priority: @Html.DropDownListFor(model => model.Priority, new SelectList(itemTypesList, "Id", "Name", Priority.Normal))</div>
     <div>Due Date: @Html.EditorFor(x => x.DueDate)</div>

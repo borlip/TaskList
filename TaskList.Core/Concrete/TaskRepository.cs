@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Data.Entity;
+using System.Linq;
 using TaskList.Core.Entities;
 
 namespace TaskList.Core.Concrete
@@ -10,7 +11,7 @@ namespace TaskList.Core.Concrete
         public TaskRepository(TaskListDbContext context)
         {
             _context = context;
-            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<TaskListDbContext>());
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<TaskListDbContext>());
         }
 
         public IQueryable<Task> Tasks
