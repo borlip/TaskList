@@ -1,0 +1,60 @@
+﻿BODY, TD { font-family: Segoe UI, Verdana }
+H1 { padding: .5em; padding-top: 0; font-weight: bold;
+font-size: 1.5em; border-bottom: 2px solid gray; }
+DIV#content { padding: .9em; }
+TABLE.Grid TD, TABLE.Grid TH { border-bottom: 1px dotted gray; text-align:left; }
+TABLE.Grid { border-collapse: collapse; width:100%; }
+TABLE.Grid TH.NumericCol, Table.Grid TD.NumericCol {
+text-align: right; padding-right: 1em; }
+FORM {margin-bottom: 0px; }
+DIV.Message { background: gray; color:White; padding: .2em; margin-top:.25em; }
+.field-validation-error { color: red; display: block; }
+.field-validation-valid { display: none; }
+.input-validation-error { border: 1px solid red; background-color: #ffeeee; }
+.validation-summary-errors { font-weight: bold; color: red; }
+.validation-summary-valid { display: none; }
+
+.editor-field { margin-bottom: .8em; }
+.editor-label { font-weight: bold; }
+.editor-label:after { content: ":" }
+.text-box { width: 25em; }
+.multi-line { height: 5em; font-family: Segoe UI, Verdana; }
+
+table.Grid {
+	font-family:arial;
+	background-color: #CDCDCD;
+	margin:10px 0pt 15px;
+	font-size: 8pt;
+	width: 100%;
+	text-align: left;
+}
+table.Grid thead tr th, table.Grid tfoot tr th {
+	background-color: #e6EEEE;
+	border: 1px solid #FFF;
+	font-size: 8pt;
+	padding: 4px;
+}
+table.Grid thead tr .header {
+	background-image: url(themes/base/images/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.Grid tbody td {
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #FFF;
+	vertical-align: top;
+}
+table.Grid tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+table.Grid thead tr .headerSortUp {
+	background-image: url(themes/base/images/asc.gif);
+}
+table.Grid thead tr .headerSortDown {
+	background-image: url(themes/base/images/desc.gif);
+}
+table.Grid thead tr .headerSortDown, table.Grid thead tr .headerSortUp {
+background-color: #8dbdd8;
+}
