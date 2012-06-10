@@ -21,3 +21,11 @@
     </tbody>
 </table>
 <p>@Html.ActionLink("Add a new task", "NewTask")</p>
+
+<h1>Tasks Due Today:</h1>
+<ul>
+    @foreach (var item in Model.Where(t => t.DueDate <= DateTime.Now))
+    {
+        <li>@item.Name</li>
+    }
+</ul>

@@ -16,6 +16,7 @@ namespace TaskList.Core.Entities
         public int RecordId { get; set; }
 
         [Required(ErrorMessage = "Please enter a task name")]
+        [MaxLength(100)]
         public string Name { get; set; }
 
         [DataType(DataType.Date)]

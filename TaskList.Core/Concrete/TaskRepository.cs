@@ -1,9 +1,13 @@
-﻿using System.Data.Entity;
-using System.Linq;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using TaskList.Core.Entities;
+using System.Linq;
 
 namespace TaskList.Core.Concrete
 {
+    /// <summary>
+    /// Task Repository
+    /// </summary>
     public class TaskRepository : ITaskRepository
     {
         private readonly TaskListDbContext _context;
@@ -14,9 +18,9 @@ namespace TaskList.Core.Concrete
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<TaskListDbContext>());
         }
 
-        public IQueryable<Task> Tasks
+        public IEnumerable<Task> Tasks
         {
-            get { return _context.Tasks; }
+            get { return _context.Tasks.ToList(); }
         }
 
         public void AddNewTask(Task task)

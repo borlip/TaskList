@@ -1,0 +1,14 @@
+﻿@model IEnumerable<TaskList.Core.Entities.Task>
+
+
+<h1>Tasks Due Today:</h1>
+<table class="Grid">
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
