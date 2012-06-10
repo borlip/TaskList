@@ -5,6 +5,7 @@ namespace TaskList.Core.Concrete
 {
     public interface ITaskRepository
     {
-        IQueryable<Task> Products { get; }
+        IQueryable<Task> Tasks { get; }
+        void AddNewTask(Task task);
     }
 }

@@ -12,13 +12,20 @@ namespace TaskList.Core.Entities
 
     public class Task
     {
+        [Key]
         public int RecordId { get; set; }
 
-        public string Description { get; set; }
+        public string Name { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime DueDate { get; set; }
 
-        public Priority Priority { get; set; }
+        public Priority Priority
+        {
+            get { return (Priority) PriorityValue; }
+            set { PriorityValue = (int) value; }
+        }
+
+        public int PriorityValue { get; set; }
     }
 }

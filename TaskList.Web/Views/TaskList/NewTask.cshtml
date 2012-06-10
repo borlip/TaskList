@@ -2,14 +2,14 @@
 @model Task
 
 @{
-ViewBag.Title = "Add New Task";
+    ViewBag.Title = "Add New Task";
 }
 
 @{
     var itemTypesList = Enum.GetValues(typeof (Priority))
-                .Cast<Priority>()
-                .Select(e => new {Id = e, Name = e.ToString()})
-                .ToList();
+        .Cast<Priority>()
+        .Select(e => new {Id = e, Name = e.ToString()})
+        .ToList();
 }
 
 <h2>New Task</h2>
@@ -18,7 +18,6 @@ ViewBag.Title = "Add New Task";
     <div>Name: @Html.EditorFor(x => x.Name)</div>
     <div>Priority: @Html.DropDownListFor(model => model.Priority, new SelectList(itemTypesList, "Id", "Name", Priority.Normal))</div>
     <div>Due Date: @Html.EditorFor(x => x.DueDate)</div>
-    <p align="center">
-        <input class="actionButtons" type="submit" value="Save" />
-    </p>
+    <input type="submit" value="Save" />
+    @Html.ActionLink("Cancel and return to List", "Index")
 }

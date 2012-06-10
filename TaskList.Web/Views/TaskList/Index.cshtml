@@ -1,0 +1,19 @@
+﻿@model IEnumerable<TaskList.Core.Entities.Task>
+
+<h1>Tasks List</h1>
+<table class="Grid">
+    <tr>
+        <th>Name</th>
+        <th>Priority</th>
+        <th>Due Date</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Priority</td>
+            <td>@item.DueDate.ToString("dd/MM/yy")</td>
+        </tr>
+    }
+</table>
+<p>@Html.ActionLink("Add a new task", "NewTask")</p>

@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Reflection;
+using System.Web.Mvc;
 using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Mvc;
@@ -23,7 +24,7 @@ namespace TaskList.Web
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "NewTask", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = "TaskList", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
 
         }
@@ -44,9 +45,10 @@ namespace TaskList.Web
 
         private static IContainer BuildContainer()
         {
-            var containerBuilder = new ContainerBuilder();
-            containerBuilder.RegisterType<TaskRepository>().As<ITaskRepository>();
-            return containerBuilder.Build();
+            var builder = new ContainerBuilder();
+            builder.RegisterControllers(Assembly.GetExecutingAssembly()).PropertiesAutowired();
+            builder.RegisterModule(new CoreModule());
+            return builder.Build();
         }
     }
 }
