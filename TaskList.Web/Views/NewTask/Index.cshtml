@@ -1,17 +1,24 @@
-﻿@model TaskList.Core.Entities.Task
+﻿@using TaskList.Core.Entities
+@model Task
 
 @{
 ViewBag.Title = "Add New Task";
 }
+
+@{
+    var itemTypesList = Enum.GetValues(typeof (Priority))
+                .Cast<Priority>()
+                .Select(e => new {Id = e, Name = e.ToString()})
+                .ToList();
+}
+
 <h2>New Task</h2>
 @using (Html.BeginForm())
 {
-    <h3>Ship to</h3>
     <div>Description: @Html.EditorFor(x => x.Description)</div>
+    <div>Priority: @Html.DropDownListFor(model => model.Priority, new SelectList(itemTypesList, "Id", "Name", Priority.Normal))</div>
     <div>Due Date: @Html.EditorFor(x => x.DueDate)</div>
-    <div>Priority: @Html.EditorFor(x => x.Priority)</div>
     <p align="center">
         <input class="actionButtons" type="submit" value="Save" />
     </p>
 }
-
