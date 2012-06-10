@@ -1,0 +1,17 @@
+﻿@model TaskList.Core.Entities.Task
+
+@{
+ViewBag.Title = "Add New Task";
+}
+<h2>New Task</h2>
+@using (Html.BeginForm())
+{
+    <h3>Ship to</h3>
+    <div>Description: @Html.EditorFor(x => x.Description)</div>
+    <div>Due Date: @Html.EditorFor(x => x.DueDate)</div>
+    <div>Priority: @Html.EditorFor(x => x.Priority)</div>
+    <p align="center">
+        <input class="actionButtons" type="submit" value="Save" />
+    </p>
+}
+

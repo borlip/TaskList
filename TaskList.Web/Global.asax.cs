@@ -23,7 +23,7 @@ namespace TaskList.Web
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = "NewTask", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
 
         }
@@ -45,7 +45,7 @@ namespace TaskList.Web
         private static IContainer BuildContainer()
         {
             var containerBuilder = new ContainerBuilder();
-            containerBuilder.RegisterType<ITaskRepository>().As<TaskRepository>();
+            containerBuilder.RegisterType<TaskRepository>().As<ITaskRepository>();
             return containerBuilder.Build();
         }
     }

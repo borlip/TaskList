@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace TaskList.Core.Entities
 {
@@ -15,6 +16,7 @@ namespace TaskList.Core.Entities
 
         public string Description { get; set; }
 
+        [DataType(DataType.Date)]
         public DateTime DueDate { get; set; }
 
         public Priority Priority { get; set; }
